@@ -32,11 +32,16 @@ public class Unstructured
     static Random random = new Random(); // used in Philosopher class
     static Philosopher[] philosophers = new Philosopher[5];
     static boolean[] forks = new boolean[5]; // false means not picked up. 
+	/*
+	* args = time in seconds that application will run
+	* 		if no input then run for default 20 seconds
+	*/
     public static void main(String[] args) throws InterruptedException
     {
         initializePhilosophers();
         
         long maxTime = 20000;
+		if ( args.length == 1 ) maxTime = Integer.valueOf(args[0])*1000;
         long endTime;
         System.out.println("run for " + maxTime/1000 + " second(s)");
         long startTime = System.currentTimeMillis();
